@@ -3,7 +3,7 @@ package com.marketwinks.mwnotifications.model;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
-public class notification {
+public class notifications {
 
 	@Id
 	public ObjectId _id;

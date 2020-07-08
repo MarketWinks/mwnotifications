@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.marketwinks.mwnotifications.repository.NotificationRepository;
+import com.marketwinks.mwnotifications.repository.NotificationsRepository;
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -24,6 +24,6 @@ public class MwnotificationsApplication {
 	}
 
 	@Autowired
-	NotificationRepository NotificationRepository;
+	NotificationsRepository NotificationRepository;
 
 }

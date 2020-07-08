@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.marketwinks.mwnotifications.model.notification;
-import com.marketwinks.mwnotifications.repository.NotificationRepository;
+import com.marketwinks.mwnotifications.model.notifications;
+import com.marketwinks.mwnotifications.repository.NotificationsRepository;
 
 @RestController
-@RequestMapping("/notification")
+@RequestMapping("/notifications")
 public class NotificationService {
 
 	@Autowired
-	private NotificationRepository NotificationRepository;
+	private NotificationsRepository NotificationRepository;
 
 	@org.springframework.scheduling.annotation.Async
 	@RequestMapping(value = "/{targetuser}/{message}/add", method = RequestMethod.GET)
@@ -25,14 +25,14 @@ public class NotificationService {
 		boolean execution_result = false;
 
 		// save to the db
-		notification notification = new notification();
+		notifications notification = new notifications();
 		notification.setMessage(message);
 		notification.setTargetuser(targetuser);
 		notification.setRead(false);
 		java.time.LocalDateTime time = LocalDateTime.now();
 		notification.setTime(time);
 
-		notification result = NotificationRepository.save(notification);
+		notifications result = NotificationRepository.save(notification);
 
 		execution_result = true;
 		return execution_result;
